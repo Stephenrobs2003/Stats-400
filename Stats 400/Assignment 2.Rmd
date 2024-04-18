@@ -1,0 +1,66 @@
+---
+title: "R Assignment 2 on Adult DataSet"
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+date: "2024-02-23"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+Installing the packages 
+
+```{r}
+library("rpart")
+library("rpart.plot")
+library("C50")
+
+```
+
+Reading in the datset of "Adults"
+```{r}
+adult<-read.csv("Adult2_Test.csv")
+adult
+```
+
+Standardize the data
+
+```{r}
+adult$Age_mm.z <- (adult$Age_mm - mean(adult$Age_mm))/sd(adult$Age_mm)
+adult$Years.of.education_mm.z <- (adult$Years.of.education_mm -
+mean(adult$Years.of.education_mm))/sd(adult$Years.of.education_mm)
+adult$Capital.Gains.z <- (adult$Capital.gains_mm -
+mean(adult$Capital.gains_mm))/sd(adult$Capital.gains_mm)
+adult$losses.z <- (adult$Capital.losses_mm -
+mean(adult$Capital.losses_mm))/sd(adult$Capital.losses_mm)
+adult$hour.z <- (adult$Hours_mm - mean(adult$Hours_mm))/sd(adult$Hours_mm)
+
+```
+
+Use predictors to classify wheather or not a person's income is less than $50k
+
+```{r}
+cartfit <- rpart(adult$Income ~ adult$Age_mm.z +
+adult$Years.of.education_mm.z + adult$Capital.Gains.z + adult$losses.z +
+adult$hour.z + adult$Race + adult$Gender + adult$Work.Class +
+adult$Marital.status, method = "class")
+print(cartfit)
+```
+
+
+Plot a decision tree graph
+
+```{r}
+rpart.plot(cartfit, main= "Classification Tree")
+
+```
+

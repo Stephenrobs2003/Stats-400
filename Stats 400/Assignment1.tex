@@ -1,0 +1,376 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Stat400-Assignment1},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Stat400-Assignment1}
+\author{}
+\date{\vspace{-2.5em}2024-02-06}
+
+\begin{document}
+\maketitle
+
+\hypertarget{r-markdown}{%
+\subsection{R Markdown}\label{r-markdown}}
+
+This is an R Markdown document. Markdown is a simple formatting syntax
+for authoring HTML, PDF, and MS Word documents. For more details on
+using R Markdown see \url{http://rmarkdown.rstudio.com}.
+
+When you click the \textbf{Knit} button a document will be generated
+that includes both content as well as the output of any embedded R code
+chunks within the document. You can embed an R code chunk like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(cars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+\end{verbatim}
+
+\hypertarget{including-plots}{%
+\subsection{Including Plots}\label{including-plots}}
+
+You can also embed plots, for example:
+
+\includegraphics{Assignment1_files/figure-latex/pressure-1.pdf}
+
+Note that the \texttt{echo\ =\ FALSE} parameter was added to the code
+chunk to prevent printing of the R code that generated the plot.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cars }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\AttributeTok{file=}\StringTok{"cars.txt"}\NormalTok{, }\AttributeTok{stringsAsFactors =}
+\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{cars2 }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\AttributeTok{file=}\StringTok{"cars2.txt"}\NormalTok{, }\AttributeTok{stringsAsFactors =}
+\ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cars\_tiny }\OtherTok{\textless{}{-}}\NormalTok{ cars[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{,}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{8}\NormalTok{)]}
+\NormalTok{cars\_tiny}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    mpg cubicinches  hp    brand
+## 1 14.0         350 165      US.
+## 2 31.9          89  71  Europe.
+## 3 17.0         302 140      US.
+## 4 15.0         400 150      US.
+## 5 30.5          98  63      US.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cars\_tiny[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}}\NormalTok{ cars\_tiny[}\DecValTok{4}\NormalTok{,}\DecValTok{4}\NormalTok{] }\OtherTok{\textless{}{-}} \ConstantTok{NA}
+\NormalTok{cars\_tiny[}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{0}
+\NormalTok{cars\_tiny[}\DecValTok{4}\NormalTok{,}\DecValTok{4}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Missing"}
+\NormalTok{cars\_tiny}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    mpg cubicinches  hp    brand
+## 1 14.0         350 165      US.
+## 2 31.9           0  71  Europe.
+## 3 17.0         302 140      US.
+## 4 15.0         400 150  Missing
+## 5 30.5          98  63      US.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(cars}\SpecialCharTok{$}\NormalTok{mpg)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment1_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{boxplot}\NormalTok{(cars}\SpecialCharTok{$}\NormalTok{cubicinches)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment1_files/figure-latex/unnamed-chunk-4-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(cars}\SpecialCharTok{$}\NormalTok{mpg, cars}\SpecialCharTok{$}\NormalTok{cubicinches)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment1_files/figure-latex/unnamed-chunk-4-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mmnorm.weight }\OtherTok{\textless{}{-}}\NormalTok{ (cars}\SpecialCharTok{$}\NormalTok{weight }\SpecialCharTok{{-}} \FunctionTok{min}\NormalTok{(cars}\SpecialCharTok{$}\NormalTok{weight))}\SpecialCharTok{/}\NormalTok{(}\FunctionTok{max}\NormalTok{(cars}\SpecialCharTok{$}\NormalTok{weight) }\SpecialCharTok{{-}} \FunctionTok{min}\NormalTok{(cars}\SpecialCharTok{$}\NormalTok{weight))}
+\NormalTok{mmnorm.weight}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] 0.76713948 0.09219858 0.54255319 0.63475177 0.12943262 0.67582742
+##   [7] 0.81264775 0.79757683 0.56648936 0.12913712 0.18676123 0.16991726
+##  [13] 0.74704492 0.60608747 0.52245863 0.81176123 0.12027187 0.53782506
+##  [19] 0.19651300 0.24143026 0.11997636 0.29166667 0.41341608 0.72133570
+##  [25] 0.10490544 0.05378251 0.04728132 0.89952719 0.57949173 0.22665485
+##  [31] 0.15277778 0.49202128 0.26388889 0.30585106 0.10992908 0.53250591
+##  [37] 0.06560284 0.32712766 0.69208038 0.48817967 0.67494090 0.89391253
+##  [43] 0.60047281 0.56353428 0.43528369 0.30200946 0.63297872 0.23108747
+##  [49] 0.09663121 0.42760047 0.84249409 0.46601655 0.58983452 0.16105201
+##  [55] 0.81767139 0.78752955 0.38918440 0.13652482 0.09574468 0.65248227
+##  [61] 0.39361702 0.22635934 0.38327423 0.14686761 0.77541371 0.56501182
+##  [67] 0.09958629 0.10401891 0.06264775 0.66991726 0.44001182 0.30348700
+##  [73] 0.19946809 0.27541371 0.17907801 0.41430260 0.43498818 0.26654846
+##  [79] 0.19267139 0.21778960 0.80141844 0.98670213 0.53546099 0.31944444
+##  [85] 0.17937352 0.00000000 0.34308511 0.54728132 0.15130024 0.32712766
+##  [91] 0.10697400 0.20301418 0.73492908 0.50709220 0.18971631 0.67789598
+##  [97] 0.85283688 0.45094563 0.65514184 0.64066194 1.00000000 0.97310875
+## [103] 0.15159574 0.17346336 0.19267139 0.30200946 0.21335697 0.13356974
+## [109] 0.31264775 0.55880615 0.19680851 0.39007092 0.80437352 0.05378251
+## [115] 0.15277778 0.64184397 0.33303783 0.42139480 0.12765957 0.80614657
+## [121] 0.17405437 0.10342790 0.90277778 0.33451537 0.06530733 0.28132388
+## [127] 0.89864066 0.18232861 0.28634752 0.05526005 0.20301418 0.31471631
+## [133] 0.98640662 0.60845154 0.83540189 0.76152482 0.10106383 0.45981087
+## [139] 0.39361702 0.40366430 0.32121749 0.16489362 0.31087470 0.04343972
+## [145] 0.58865248 0.39716312 0.51625296 0.33156028 0.61465721 0.47044917
+## [151] 0.27452719 0.27984634 0.83096927 0.45656028 0.25147754 0.49911348
+## [157] 0.15100473 0.15425532 0.30171395 0.53102837 0.41075650 0.72901891
+## [163] 0.40514184 0.38150118 0.18942080 0.51773050 0.53959811 0.28723404
+## [169] 0.35283688 0.15130024 0.20005910 0.35963357 0.07505910 0.28427896
+## [175] 0.18114657 0.17021277 0.81914894 0.60845154 0.57830969 0.12765957
+## [181] 0.40691489 0.15721040 0.76891253 0.53871158 0.23108747 0.43055556
+## [187] 0.54550827 0.68764775 0.74349882 0.92257683 0.29757683 0.31235225
+## [193] 0.83008274 0.72960993 0.72813239 0.15691489 0.25916076 0.10992908
+## [199] 0.09574468 0.09810875 0.18705674 0.30319149 0.53398345 0.59604019
+## [205] 0.23286052 0.66105201 0.14686761 0.41607565 0.73433806 0.38031915
+## [211] 0.35520095 0.54137116 0.04196217 0.13622931 0.47872340 0.29609929
+## [217] 0.10697400 0.76891253 0.29018913 0.79255319 0.46690307 0.34929078
+## [223] 0.84042553 0.65218676 0.71778960 0.11524823 0.88711584 0.01063830
+## [229] 0.28782506 0.34781324 0.57624113 0.29905437 0.28930260 0.85254137
+## [235] 0.45419622 0.15277778 0.73374704 0.39952719 0.07742317 0.17937352
+## [241] 0.72163121 0.44562648 0.77039007 0.31294326 0.80998818 0.52777778
+## [247] 0.62706856 0.13947991 0.16016548 0.26950355 0.14982270 0.30939716
+## [253] 0.39509456 0.70183215 0.32860520 0.22429078 0.65809693 0.05526005
+## [259] 0.36111111 0.49497636 0.51418440
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{zscore.weight }\OtherTok{\textless{}{-}}\NormalTok{ (cars}\SpecialCharTok{$}\NormalTok{weight }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(cars}\SpecialCharTok{$}\NormalTok{weight))}\SpecialCharTok{/}\FunctionTok{sd}\NormalTok{(cars}\SpecialCharTok{$}\NormalTok{weight)}
+\NormalTok{zscore.weight}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1]  1.411500375 -1.267221019  0.520157004  0.886076914 -1.119445671
+##   [6]  1.049098925  1.592114690  1.532300858  0.615155442 -1.120618491
+##  [11] -0.891918547 -0.958769300  1.331748600  0.772313352  0.440405229
+##  [16]  1.588596229 -1.155803098  0.501391880 -0.853215480 -0.674946806
+##  [21] -1.156975918 -0.475567367  0.007634565  1.229713240 -1.216789750
+##  [26] -1.419687649 -1.445489694  1.936923836  0.666759532 -0.733587817
+##  [31] -1.026792873  0.319604745 -0.585812469 -0.419271997 -1.196851806
+##  [36]  0.480281116 -1.372774840 -0.334828940  1.113604038  0.304358082
+##  [41]  1.045580465  1.914640252  0.750029768  0.603427240  0.094423262
+##  [46] -0.434518660  0.879039993 -0.715995514 -1.249628716  0.063929936
+##  [51]  1.710569532  0.216396565  0.707808240 -0.993953907  1.612052634
+##  [56]  1.492424971 -0.088536693 -1.091297986 -1.253147177  0.956446128
+##  [61] -0.070944390 -0.734760637 -0.111993098 -1.050249278  1.444339341
+##  [66]  0.609291341 -1.237900514 -1.220308210 -1.384503042  1.025642521
+##  [71]  0.113188386 -0.428654558 -0.841487278 -0.540072480 -0.922411873
+##  [76]  0.011153026  0.093250442 -0.575257087 -0.868462143 -0.768772424
+##  [81]  1.547547521  2.282905802  0.492009318 -0.365322266 -0.921239053
+##  [86] -1.633140930 -0.271496648  0.538922127 -1.032656974 -0.334828940
+##  [91] -1.208580008 -0.827413435  1.283662970  0.379418577 -0.880190345
+##  [96]  1.057308667  1.751618240  0.156582734  0.967001510  0.909533319
+## [101]  2.335682713  2.228956072 -1.031484154 -0.944695458 -0.868462143
+## [106] -0.434518660 -0.786364727 -1.103026188 -0.392297131  0.584662116
+## [111] -0.852042660 -0.085018232  1.559275723 -1.419687649 -1.026792873
+## [116]  0.914224600 -0.311372536  0.039300711 -1.126482592  1.566312645
+## [121] -0.942349817 -1.222653851  1.949824858 -0.305508435 -1.373947660
+## [126] -0.516616075  1.933405375 -0.909510851 -0.496678131 -1.413823548
+## [131] -0.827413435 -0.384087390  2.281732982  0.781695914  1.682421847
+## [136]  1.389216791 -1.232036413  0.191767341 -0.070944390 -0.031068502
+## [141] -0.358285345 -0.978707244 -0.399334053 -1.460736357  0.703116959
+## [146] -0.056870547  0.415776004 -0.317236637  0.806325139  0.233988869
+## [151] -0.543590941 -0.522480176  1.664829544  0.178866318 -0.635070918
+## [156]  0.347752431 -1.033829795 -1.020928772 -0.435691480  0.474417015
+## [161] -0.002920817  1.260206566 -0.025204401 -0.119030019 -0.881363165
+## [166]  0.421640105  0.508428802 -0.493159671 -0.232793581 -1.032656974
+## [171] -0.839141637 -0.205818716 -1.335244593 -0.504887873 -0.914202132
+## [176] -0.957596480  1.617916735  0.781695914  0.662068251 -1.126482592
+## [181] -0.018167480 -1.009200570  1.418537296  0.504910341 -0.715995514
+## [186]  0.075658138  0.531885206  1.096011734  1.317674757  2.028403814
+## [191] -0.452110963 -0.393469952  1.661311083  1.262552206  1.256688105
+## [196] -1.010373390 -0.604577592 -1.196851806 -1.253147177 -1.243764615
+## [201] -0.890745727 -0.429827379  0.486145217  0.732437465 -0.708958592
+## [206]  0.990457914 -1.050249278  0.018189947  1.281317330 -0.123721300
+## [211] -0.223411019  0.515465723 -1.466600458 -1.092470806  0.266827835
+## [216] -0.457975064 -1.208580008  1.418537296 -0.481431469  1.512362914
+## [221]  0.219915026 -0.246867424  1.702359791  0.955273307  1.215639397
+## [226] -1.175741042  1.887665386 -1.590919402 -0.490814030 -0.252731525
+## [231]  0.653858510 -0.446246862 -0.484949929  1.750445420  0.169483756
+## [236] -1.026792873  1.278971690 -0.047487985 -1.325862031 -0.921239053
+## [241]  1.230886060  0.135471970  1.424401398 -0.391124311  1.581559308
+## [246]  0.461515993  0.855583588 -1.079569783 -0.997472368 -0.563528884
+## [251] -1.038521076 -0.405198154 -0.065080289  1.152307105 -0.328964839
+## [256] -0.742970379  0.978729712 -1.413823548 -0.199954614  0.331332948
+## [261]  0.407566262
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(cars}\SpecialCharTok{$}\NormalTok{mpg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 23.14483
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sd}\NormalTok{(cars}\SpecialCharTok{$}\NormalTok{mpg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 7.82357
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{min}\NormalTok{(cars}\SpecialCharTok{$}\NormalTok{mpg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{max}\NormalTok{(cars}\SpecialCharTok{$}\NormalTok{mpg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 46.6
+\end{verbatim}
+
+\end{document}
